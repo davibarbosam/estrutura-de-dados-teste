@@ -1,0 +1,16 @@
+Uma solução bastante utilizada é o uso de branches/ramificações/bifurcações. 
+Possibilita o desenvolvimento de novas funcionalidades em paralelo.
+Como um branch em Git é na verdade um arquivo simples que contém os 40 caracteres do checksum SHA-1 do commit para o qual ele aponta, 
+os branches são baratos para criar e destruir. 
+Criar um novo branch é tão rápido e simples como escrever 41 bytes em um arquivo (40 caracteres e uma quebra de linha).
+
+Isto está em nítido contraste com a forma com a qual a maioria das ferramentas gerenciam branches,
+que envolve a cópia de todos os arquivos do projeto para um segundo diretório. 
+Isso pode demorar vários segundos ou até minutos, dependendo do tamanho do projeto,
+ enquanto que no Git o processo é sempre instantâneo. 
+Também, porque nós estamos gravando os pais dos objetos quando fazemos commits,
+ encontrar uma boa base para fazer o merge é uma tarefa feita automaticamente para nós e geralmente é muito fácil de fazer. 
+Esses recursos ajudam a estimular os desenvolvedores a criar e utilizar branches com frequência.
+Devido ao Git usar um merge de três vias, fazer o merge de um branch em outro várias vezes em um período longo é geralmente fácil de fazer. Isto significa que você pode ter vários branches que ficam sempre abertos e que são usados em diferentes estágios do seu ciclo de desenvolvimento; você pode regularmente fazer o merge de alguns deles em outros.
+Muitos desenvolvedores Git tem um fluxo de trabalho que adotam essa abordagem, como ter somente código completamente estável em seus branches master — possivelmente somente código que já foi ou será liberado. Eles têm outro branch paralelo chamado develop ou algo parecido em que eles trabalham ou usam para testar estabilidade — ele não é necessariamente sempre estável, mas quando ele chega a tal estágio, pode ser feito o merge com o branch master. Ele é usado para puxar (pull) branches tópicos (topic, branches de curta duração, como o seu branch iss53 anteriormente) quando eles estão prontos, para ter certeza que eles passam em todos os testes e não acrescentam erros.
+Na realidade, nós estamos falando de ponteiros avançando na linha de commits que você está fazendo. Os branches estáveis estão muito atrás na linha histórica de commits, e os branches de ponta (que estão sendo trabalhados) estão a frente no histórico
